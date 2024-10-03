@@ -1,5 +1,5 @@
-<div class="bg-black text-white  py-2 flex justify-between items-center main__container">
-    <div class="text-small flex items-center gap-8">
+<div class="bg-black text-white  py-4  justify-between items-center main__container hidden md:flex">
+    <div class="text-[12px] flex items-center gap-8">
         <x-text-icon text="vannshop@gmail.com" gap="2">
             <x-slot name="icon">
                 <i class="ri-mail-fill"></i>
@@ -13,7 +13,7 @@
         </x-text-icon>
     </div>
 
-    <div class="text-small flex items-center gap-6">
+    <div class="text-[12px] flex items-center gap-6">
         @foreach (['login', 'account', 'my cart'] as $item)
             <h1 class="uppercase">{{ $item }}</h1>
         @endforeach

@@ -32,3 +32,63 @@ body {
 .active-dashboard {
     @apply bg-blue_soft text-blue-400 opacity-100 dark:bg-blue_old;
 }
+
+.icon-style:hover {
+    opacity: 80;
+    cursor: pointer;
+}
+
+.line {
+    @apply absolute bg-yellow  group-hover:w-[30px] h-[2px] transition-300 md:bottom-[0] -bottom-[.3rem] left-0;
+}
+
+.show:hover i {
+    color: #6c6c6c;
+}
+
+.sosmed {
+    @apply hover:cursor-pointer hover:text-yellow transition-300 text-[18px];
+}
+
+.swiper-pagination-bullet-active {
+    @apply bg-yellow w-[25px] rounded;
+}
+.swiper-pagination-bullet {
+    @apply transition-300;
+}
+
+.full__container {
+    @apply md:gap-0 md:grid-cols-9 xl:px-[24.5rem] lg:px-[10rem] md:px-[3rem] px-[1rem];
+}
+
+.list-footer {
+    @apply transition-300 hover:text-white hover:cursor-pointer hover:translate-x-[4px];
+}
+
+.banner {
+    background-image: url("/public/banner/banner-about.jpg");
+    background-position: 50% -30%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.year-line {
+    @apply font-medium text-[20px] relative ml-[50px];
+}
+
+.year-line span {
+    @apply bg-black w-[60px] h-[2px] inline-block mx-3;
+}
+
+.year-line::before {
+    @apply content-[''] bg-black w-[30px] h-[2px] inline-block absolute top-[50%] translate-y-[-50%] -left-[3rem];
+}
+
+.cultur img {
+    @apply w-full h-full;
+}
+
+.absolute-center {
+    @apply left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%];
+}

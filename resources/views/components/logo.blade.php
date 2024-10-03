@@ -1,3 +1,3 @@
-<h1 class="font-bold text-[18px]  xl:text-[20px]  text-yellow tracking-tighter ">Vann<span
-        class="text-blue_old ">Shop</span>
+@props(['position' => 'text-center'])
+<h1 class="fs-4 {{ $position }} w-100 text-yellow text-[24px] font-bold">Vann<span class="text-blue_old ">Shop</span>
 </h1>

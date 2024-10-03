@@ -16,9 +16,9 @@ export default {
                 cus_blue: "#52594a",
                 blue_old: "#2d3a4b",
                 blue_soft: "#f1f4f9",
-            },
-            fontSize: {
-                md: "24px",
+                gray_old: "rgba(0,0,0,0.03)",
+                text_gray: "#6c6c6c;",
+                text_brown_gray: '#6f6f6f'
             },
         },
     },

@@ -26,7 +26,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Dashboard | {{ $header }}</title>
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="description" content="" />
@@ -57,7 +57,8 @@
 
     {{-- datatable --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
-
+    {{-- sweat alert --}}
+    <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.14.0/dist/sweetalert2.min.css " rel="stylesheet">
     <!-- Page CSS -->
 
     <!-- Helpers -->
@@ -262,15 +263,47 @@
     
     <script src={{ asset('sneat/assets/vendor/js/menu.js') }}></script>
     <!-- endbuild -->
-    {{-- <script>
-        $(document).ready(function() {
-            
-        });
-    </script> --}}
+    <script>
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr('content')
+            }
+        })
+
+        function deleteAlert(action, text = '') {
+            // action has to return a object {status , message}
+            Swal.fire({
+                title: "Are you sure?",
+                text: text || "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    const res = await action();
+                    if (res?.status) {
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: res.message,
+                            icon: "success"
+                        });
+                    } else {
+                        Swal.fire({
+                            title: "Error",
+                            text: res?.message,
+                            icon: "error"
+                        });
+                    }
+                }
+            });
+        }
+    </script>
     {{ $script }}
     <!-- Vendors JS -->
     <script src={{ asset('sneat/assets/vendor/libs/apex-charts/apexcharts.js') }}></script>
-
+    <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.14.0/dist/sweetalert2.all.min.js "></script>
     <!-- Main JS -->
     <script src={{ asset('sneat/assets/js/main.js') }}></script>
 
